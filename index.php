@@ -1,3 +1,31 @@
+<?php 
+	$animals = [
+		"Eurasia" => ["Alces alces", "Vulpes lagopus", "Canis lupus"],
+		"Africa" => ["Elephantidae", "Rhinocerotidae","Green hippotigris"],
+		"North America" => ["Canis latrans", "Procyon", "Mephitidae"],
+		"South America" => ["Panthera onca", "Myrmecophagidae", "Puma concolor"],
+		"Australia" => ["Phascolarctos cinereus", "Macropus", "Ornithorhynchus anatinus"],
+		"Antarctica " => ["Spheniscidae", "Ursus maritimus", "Odobenus rosmarus"],
+		];
+
+	$newaarray = [];	
+	$twoword = [];
+	
+	foreach ($animals as $continent => $animal) 
+	{
+		foreach ($animal as $full_names) 
+		{
+			$rzname = explode (' ', $full_names);
+			if (count($rzname) == 2) 
+			{
+				$new_array[$continent][] = implode (' ', $rzname);
+				$two_word[] = $rzname[1];
+			}
+		}
+	}
+		shuffle ($two_word);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,31 +56,6 @@
 <body>
 	<div class="wrapper">
 	<?php 
-		$animals = [
-			"Eurasia" => ["Alces alces", "Vulpes lagopus", "Canis lupus"],
-			"Africa" => ["Elephantidae", "Rhinocerotidae","Green hippotigris"],
-			"North America" => ["Canis latrans", "Procyon", "Mephitidae"],
-			"South America" => ["Panthera onca", "Myrmecophagidae", "Puma concolor"],
-			"Australia" => ["Phascolarctos cinereus", "Macropus", "Ornithorhynchus anatinus"],
-			"Antarctica " => ["Spheniscidae", "Ursus maritimus", "Odobenus rosmarus"],
-			];
-
-		$newaarray = [];	
-		$twoword = [];
-		foreach ($animals as $continent => $animal) 
-		{
-			foreach ($animal as $full_names) 
-			{
-				$rzname = explode (' ', $full_names);
-					if (count($rzname) == 2) 
-					{
-						$new_array[$continent][] = implode (' ', $rzname);
-						$two_word[] = $rzname[1];
-					}
-			}
-		}
-		shuffle ($two_word);
-
 		foreach ($new_array as $continent => $animal) 
 		{
 			echo '<h2>' . $continent . '</h2>';
