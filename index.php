@@ -39,30 +39,30 @@
 
 		$newaarray = [];	
 		$twoword = [];
-		foreach ($animals as $materic => $animal) 
+		foreach ($animals as $continent => $animal) 
 		{
-			foreach ($animal as $fullnames) 
+			foreach ($animal as $full_names) 
 			{
-				$rzname = explode (' ', $fullnames);
+				$rzname = explode (' ', $full_names);
 					if (count($rzname) == 2) 
 					{
-						$newaarray[$materic][] = implode (' ', $rzname);
-						$twoword[] = $rzname[1];
+						$new_array[$continent][] = implode (' ', $rzname);
+						$two_word[] = $rzname[1];
 					}
 			}
 		}
-		shuffle ($twoword);
+		shuffle ($two_word);
 
-		foreach ($newaarray as $materic => $animal) 
+		foreach ($new_array as $continent => $animal) 
 		{
-			echo '<h2>' . $materic . '</h2>';
-			$animallist =[];
+			echo '<h2>' . $continent . '</h2>';
+			$animal_list =[];
 				foreach ($animal as $name) 
 				{
 					$names = explode (' ', $name);
-	        		$animallist[] = $names[0] . ' ' . array_shift($twoword);
+	        		$animal_list[] = $names[0] . ' ' . array_shift($two_word);
 				}
-			echo '<p>' . implode (', ', $animallist) . '</p>';
+			echo '<p>' . implode (', ', $animal_list) . '</p>';
 		}
 	?>
 	</div>
